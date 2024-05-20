@@ -109,27 +109,12 @@ if not model_type == 'YOLO Model':
             def convert_to_csv(df):
                 return df.to_csv(index=False).encode('utf-8')
 
-            
-
-
-            # # Download buttons
-            # download_csv = st.download_button(
-            #     label="Download data as CSV",
-            #     data=convert_to_csv(df_fq),
-            #     file_name='thongke_phanloaibenh.csv',
-            #     mime='text/csv'
-            # )
-
-   # Write the DataFrame to the buffer in XLS format
-    with pd.ExcelWriter(buffer, engine='xlwt') as writer:
-        df_fq.to_excel(writer, sheet_name='Sheet1', index=False)
-
-    # Add a download button to save the Excel file
-    st.download_button(
-        label="Download Excel (.xls)",
-        data=buffer,
-        file_name='thongke_phanloai.xls',
-    
-    )
+            # Download buttons
+            download_csv = st.download_button(
+                label="Download data as CSV",
+                data=convert_to_csv(df_fq),
+                file_name='thongke_phanloaibenh.csv',
+                mime='text/csv'
+            )
                     
 
