@@ -120,12 +120,16 @@ if not model_type == 'YOLO Model':
             #     mime='text/csv'
             # )
 
-    with pd.ExcelWriter(buffer, engine='xlsxwriter') as writer:
+   # Write the DataFrame to the buffer in XLS format
+    with pd.ExcelWriter(buffer, engine='xlwt') as writer:
         df_fq.to_excel(writer, sheet_name='Sheet1', index=False)
-        download_excel = st.download_button(
-        label="Download data as Excel",
+
+    # Add a download button to save the Excel file
+    st.download_button(
+        label="Download Excel (.xls)",
         data=buffer,
-        file_name='thongke_phanloai.xlsx',
+        file_name='thongke_phanloai.xls',
+    
     )
                     
 
